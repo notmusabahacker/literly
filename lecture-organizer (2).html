@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lecture Organizer</title>
+<meta name="theme-color" content="#1c1f26" />
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADAEAIAAACNLicTAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGYktHRP///////wlY99wAAAAHdElNRQfqCQUGFwUwoQysAAAFFUlEQVR42u3cv2vUdxzH8bv8QmgRU6mDnqZTQB0EqeJQUBzaimv/gQ5FiLh2CRUayNJ2swoixanUqUuxEopBi6BYCEhRod00iMRiqPgjXvSuw7e0HQ6NmOb1udzjMWXJ+76f5cl9vtznU280RkZGR2sAK64v/QBA7xIgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAmIH0A1C8Rn1rfXHovf0f79k8eG7njm2Hh/r2Pdu9YSn/2mxdGLg6t3hg5tqN481L06ev3K7Ntm+2B9NLohT1RmNkZHQ0/RiUqK/v7U/e2vDm9onJI+P9s1t+2bjmdaY9b9zadWfh4fWj48cmW617p+7PpddHngDRSaO+tb64dvjExaMnXj89/1Vl6MH82N6JMd+G8A6IDqoN1/Kmp1LNrOanV0meANFB9a6ne+fTLQSIDpb+mrnM+XQLAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiXMlaKheh0gMEqDh/X4Q6PDF5ZLx/astXG9fU+mrPXmVClaqhqX3bd3++pvHRxfcXHt5xESolsgUrSaO+tb64XHcwV6o51cxqfnqR8C8BKoiLUOk1AlQQF6HSawSoIC5CpdcIEBAjQECMAAExAgTECBAQ45fQdA/HU1YdAaILOJ6yWtmCUTbHU1Y1AaJojqesbgJE0RxPWd0EiKI5nrK6CRAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjABRtGbrwsDVue6dz4sJEEVbPDBz7cbx7p3PiwkQRWtemj595fbzxq1ddxaWd3I1s5qfXmXvEiDKNtu+2R58eP3o+LHJ5cpQNaeaWc1PL7J3DaQfAF6u1bp36v7cg/mxvRNjQx/sv75n8+C5nTu2HR7q2/ds94alTKje9VQbrual6b1Xbtda7VPSkyZAdI/Z9s32YPPM+U8v323Wztcuf/ao9mXtm1eZcOafv6SnCLZgQIwAATECBMQIEBAjQECMABXEsQN6jQAVxLEDeo0AFcSxA3qNAJXEsQN6jF9CF8exA3pHvdEYGRkdTT8GZRkePnv25Mn/+1Pm5w8ePHQovVaSbMGAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAGiA5fDsjIEiA5cDsvKECA6cDksK0OA6MTlsKyI/rVr161bvz79GJSo3X488+TR06Ef3/35h9b+u5v+mKn9/nRjc3t//Z3WpjeWMqF617Pw4fe//vTF49++nv/2u/afj6aeLPO3KrqXK1mBGFswIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAmL8ANkr3AchwKy0AAAAASUVORK5CYII=" />
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADAEAIAAACNLicTAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGYktHRP///////wlY99wAAAAHdElNRQfqCQUGFwUwoQysAAAFFUlEQVR42u3cv2vUdxzH8bv8QmgRU6mDnqZTQB0EqeJQUBzaimv/gQ5FiLh2CRUayNJ2swoixanUqUuxEopBi6BYCEhRod00iMRiqPgjXvSuw7e0HQ6NmOb1udzjMWXJ+76f5cl9vtznU280RkZGR2sAK64v/QBA7xIgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAmIH0A1C8Rn1rfXHovf0f79k8eG7njm2Hh/r2Pdu9YSn/2mxdGLg6t3hg5tqN481L06ev3K7Ntm+2B9NLohT1RmNkZHQ0/RiUqK/v7U/e2vDm9onJI+P9s1t+2bjmdaY9b9zadWfh4fWj48cmW617p+7PpddHngDRSaO+tb64dvjExaMnXj89/1Vl6MH82N6JMd+G8A6IDqoN1/Kmp1LNrOanV0meANFB9a6ne+fTLQSIDpb+mrnM+XQLAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiXMlaKheh0gMEqDh/X4Q6PDF5ZLx/astXG9fU+mrPXmVClaqhqX3bd3++pvHRxfcXHt5xESolsgUrSaO+tb64XHcwV6o51cxqfnqR8C8BKoiLUOk1AlQQF6HSawSoIC5CpdcIEBAjQECMAAExAgTECBAQ45fQdA/HU1YdAaILOJ6yWtmCUTbHU1Y1AaJojqesbgJE0RxPWd0EiKI5nrK6CRAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjABRtGbrwsDVue6dz4sJEEVbPDBz7cbx7p3PiwkQRWtemj595fbzxq1ddxaWd3I1s5qfXmXvEiDKNtu+2R58eP3o+LHJ5cpQNaeaWc1PL7J3DaQfAF6u1bp36v7cg/mxvRNjQx/sv75n8+C5nTu2HR7q2/ds94alTKje9VQbrual6b1Xbtda7VPSkyZAdI/Z9s32YPPM+U8v323Wztcuf/ao9mXtm1eZcOafv6SnCLZgQIwAATECBMQIEBAjQECMABXEsQN6jQAVxLEDeo0AFcSxA3qNAJXEsQN6jF9CF8exA3pHvdEYGRkdTT8GZRkePnv25Mn/+1Pm5w8ePHQovVaSbMGAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAGiA5fDsjIEiA5cDsvKECA6cDksK0OA6MTlsKyI/rVr161bvz79GJSo3X488+TR06Ef3/35h9b+u5v+mKn9/nRjc3t//Z3WpjeWMqF617Pw4fe//vTF49++nv/2u/afj6aeLPO3KrqXK1mBGFswIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAmL8ANkr3AchwKy0AAAAASUVORK5CYII=" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Lectures" />
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22Lecture%20Organizer%22%2C%20%22short_name%22%3A%20%22Lectures%22%2C%20%22description%22%3A%20%22Live%20lecture%20transcription%2C%20exam-ready%20notes%2C%20and%20recorded%20audio%20playback.%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%231c1f26%22%2C%20%22theme_color%22%3A%20%22%231c1f26%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAMAAAADAEAIAAACNLicTAAAAIGNIUk0AAHomAACAhAAA%2BgAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGYktHRP///////wlY99wAAAAHdElNRQfqCQUGFwUwoQysAAAFFUlEQVR42u3cv2vUdxzH8bv8QmgRU6mDnqZTQB0EqeJQUBzaimv/gQ5FiLh2CRUayNJ2swoixanUqUuxEopBi6BYCEhRod00iMRiqPgjXvSuw7e0HQ6NmOb1udzjMWXJ%2B76f5cl9vtznU280RkZGR2sAK64v/QBA7xIgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAmIH0A1C8Rn1rfXHovf0f79k8eG7njm2Hh/r2Pdu9YSn/2mxdGLg6t3hg5tqN481L06ev3K7Ntm%2B2B9NLohT1RmNkZHQ0/RiUqK/v7U/e2vDm9onJI%2BP9s1t%2B2bjmdaY9b9zadWfh4fWj48cmW617p%2B7PpddHngDRSaO%2Btb64dvjExaMnXj89/1Vl6MH82N6JMd%2BG8A6IDqoN1/Kmp1LNrOanV0meANFB9a6ne%2BfTLQSIDpb%2BmrnM%2BXQLAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiXMlaKheh0gMEqDh/X4Q6PDF5ZLx/astXG9fU%2BmrPXmVClaqhqX3bd3%2B%2BpvHRxfcXHt5xESolsgUrSaO%2Btb64XHcwV6o51cxqfnqR8C8BKoiLUOk1AlQQF6HSawSoIC5CpdcIEBAjQECMAAExAgTECBAQ45fQdA/HU1YdAaILOJ6yWtmCUTbHU1Y1AaJojqesbgJE0RxPWd0EiKI5nrK6CRAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjABRtGbrwsDVue6dz4sJEEVbPDBz7cbx7p3PiwkQRWtemj595fbzxq1ddxaWd3I1s5qfXmXvEiDKNtu%2B2R58eP3o%2BLHJ5cpQNaeaWc1PL7J3DaQfAF6u1bp36v7cg/mxvRNjQx/sv75n8%2BC5nTu2HR7q2/ds94alTKje9VQbrual6b1Xbtda7VPSkyZAdI/Z9s32YPPM%2BU8v323Wztcuf/ao9mXtm1eZcOafv6SnCLZgQIwAATECBMQIEBAjQECMABXEsQN6jQAVxLEDeo0AFcSxA3qNAJXEsQN6jF9CF8exA3pHvdEYGRkdTT8GZRkePnv25Mn/%2B1Pm5w8ePHQovVaSbMGAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAGiA5fDsjIEiA5cDsvKECA6cDksK0OA6MTlsKyI/rVr161bvz79GJSo3X488%2BTR06Ef3/35h9b%2Bu5v%2BmKn9/nRjc3t//Z3WpjeWMqF617Pw4fe//vTF49%2B%2Bnv/2u/afj6aeLPO3KrqXK1mBGFswIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAmL8ANkr3AchwKy0AAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22192x192%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%22%7D%2C%20%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAMAAAADAEAIAAACNLicTAAAAIGNIUk0AAHomAACAhAAA%2BgAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAGYktHRP///////wlY99wAAAAHdElNRQfqCQUGFwUwoQysAAAFFUlEQVR42u3cv2vUdxzH8bv8QmgRU6mDnqZTQB0EqeJQUBzaimv/gQ5FiLh2CRUayNJ2swoixanUqUuxEopBi6BYCEhRod00iMRiqPgjXvSuw7e0HQ6NmOb1udzjMWXJ%2B76f5cl9vtznU280RkZGR2sAK64v/QBA7xIgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAmIH0A1C8Rn1rfXHovf0f79k8eG7njm2Hh/r2Pdu9YSn/2mxdGLg6t3hg5tqN481L06ev3K7Ntm%2B2B9NLohT1RmNkZHQ0/RiUqK/v7U/e2vDm9onJI%2BP9s1t%2B2bjmdaY9b9zadWfh4fWj48cmW617p%2B7PpddHngDRSaO%2Btb64dvjExaMnXj89/1Vl6MH82N6JMd%2BG8A6IDqoN1/Kmp1LNrOanV0meANFB9a6ne%2BfTLQSIDpb%2BmrnM%2BXQLAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiXMlaKheh0gMEqDh/X4Q6PDF5ZLx/astXG9fU%2BmrPXmVClaqhqX3bd3%2B%2BpvHRxfcXHt5xESolsgUrSaO%2Btb64XHcwV6o51cxqfnqR8C8BKoiLUOk1AlQQF6HSawSoIC5CpdcIEBAjQECMAAExAgTECBAQ45fQdA/HU1YdAaILOJ6yWtmCUTbHU1Y1AaJojqesbgJE0RxPWd0EiKI5nrK6CRAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjAABMQIExAgQECNAQIwAATECBMQIEBAjQECMAAExAgTECBAQI0BAjABRtGbrwsDVue6dz4sJEEVbPDBz7cbx7p3PiwkQRWtemj595fbzxq1ddxaWd3I1s5qfXmXvEiDKNtu%2B2R58eP3o%2BLHJ5cpQNaeaWc1PL7J3DaQfAF6u1bp36v7cg/mxvRNjQx/sv75n8%2BC5nTu2HR7q2/ds94alTKje9VQbrual6b1Xbtda7VPSkyZAdI/Z9s32YPPM%2BU8v323Wztcuf/ao9mXtm1eZcOafv6SnCLZgQIwAATECBMQIEBAjQECMABXEsQN6jQAVxLEDeo0AFcSxA3qNAJXEsQN6jF9CF8exA3pHvdEYGRkdTT8GZRkePnv25Mn/%2B1Pm5w8ePHQovVaSbMGAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAGiA5fDsjIEiA5cDsvKECA6cDksK0OA6MTlsKyI/rVr161bvz79GJSo3X488%2BTR06Ef3/35h9b%2Bu5v%2BmKn9/nRjc3t//Z3WpjeWMqF617Pw4fe//vTF49%2B%2Bnv/2u/afj6aeLPO3KrqXK1mBGFswIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAGAECYgQIiBEgIEaAgBgBAmIECIgRICBGgIAYAQJiBAiIESAgRoCAmL8ANkr3AchwKy0AAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22192x192%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22maskable%22%7D%5D%7D" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+  :root {
+    --bg: #1c1f26;
+    --card: #262a33;
+    --border: #383d48;
+    --fg: #e8eaed;
+    --muted: #9aa0ac;
+    --primary: #2dd4bf;
+    --primary-fg: #0b1411;
+    --destructive: #f87171;
+    --amber: #f59e0b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+  }
+  header h1 { font-size: 14px; font-weight: 600; margin: 0; }
+  input, select, textarea, button {
+    font: inherit;
+    color: inherit;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    outline: none;
+  }
+  input, select { padding: 7px 10px; font-size: 13px; }
+  textarea { padding: 10px; font-size: 13px; line-height: 1.5; resize: none; }
+  button { padding: 7px 12px; font-size: 12px; cursor: pointer; }
+  button:hover:not(:disabled) { background: #2f333e; }
+  button:disabled { opacity: 0.4; cursor: default; }
+  .btn-primary { background: var(--primary); color: var(--primary-fg); font-weight: 600; border-color: var(--primary); }
+  .btn-primary:hover:not(:disabled) { background: #26c4b0; }
+  .btn-destructive { color: var(--destructive); }
+  #searchInput { flex: 1; min-width: 160px; }
+  .muted { color: var(--muted); font-size: 12px; }
+  .badge-offline {
+    background: rgba(245, 158, 11, 0.15); color: var(--amber);
+    padding: 4px 8px; border-radius: 999px; font-size: 11px; font-weight: 600;
+  }
+  #onlinePanel { border-bottom: 1px solid var(--border); padding: 10px 14px; background: rgba(255,255,255,0.02); display: none; }
+  #onlinePanel .head { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+  #onlinePanel .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; }
+  #onlinePanel .text { white-space: pre-wrap; font-size: 13px; margin-top: 8px; }
+  #onlinePanel .sources { display: flex; flex-wrap: wrap; gap: 4px 12px; border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px; }
+  #onlinePanel .sources a { color: var(--primary); font-size: 11px; text-decoration: underline; }
+  .layout { display: flex; flex: 1; flex-direction: column; }
+  @media (min-width: 768px) { .layout { flex-direction: row; } }
+  aside { width: 100%; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+  @media (min-width: 768px) { aside { width: 300px; border-bottom: none; border-right: 1px solid var(--border); } }
+  #settingsBox { border-bottom: 1px solid var(--border); padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+  #accountBox { border-bottom: 1px solid var(--border); padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+  #accountBox input { width: 100%; margin-bottom: 6px; }
+  #accountStatus { margin: 0; }
+  #keyBox { border: 1px solid var(--border); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+  #keyBox p.hint { font-size: 11px; color: var(--muted); margin: 0; }
+  .key-row { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+  .key-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--muted); flex-shrink: 0; }
+  .key-dot.active { background: #34d399; }
+  .key-row span.k { flex: 1; font-family: monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .key-row button { padding: 2px 6px; }
+  #newKeyRow { display: flex; gap: 6px; }
+  #newKeyRow input { flex: 1; min-width: 0; }
+  #recordBox { border-bottom: 1px solid var(--border); padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+  #lectureList { overflow-y: auto; max-height: 50vh; }
+  @media (min-width: 768px) { #lectureList { max-height: calc(100vh - 260px); } }
+  .group-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); padding: 8px 10px 4px; }
+  .lecture-item {
+    display: block; width: 100%; text-align: left; background: none; border: none; border-radius: 0;
+    padding: 8px 10px; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .lecture-item:hover { background: var(--card); }
+  .lecture-item.active { background: var(--card); border-left: 2px solid var(--primary); }
+  .lecture-item .title { font-size: 12.5px; font-weight: 500; }
+  .lecture-item .meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  main { flex: 1; padding: 14px; overflow-y: auto; }
+  .empty-state { color: var(--muted); font-size: 13px; padding: 40px 10px; text-align: center; }
+  .field-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; display: block; margin-bottom: 6px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+  .row input[type=text] { flex: 1; min-width: 160px; }
+  .row input.subject { width: 130px; flex: none; }
+  .panel { border: 1px solid var(--border); border-radius: 6px; padding: 10px; margin-bottom: 12px; }
+  .grid2 { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  @media (min-width: 1024px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+  .grid2 textarea { width: 100%; height: 55vh; }
+  #liveBox { border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin-bottom: 12px; }
+  #liveText { font-size: 14px; line-height: 1.6; white-space: pre-wrap; max-height: 40vh; overflow-y: auto; }
+  #liveText .interim { color: var(--muted); }
+  footer { border-top: 1px solid var(--border); padding: 8px; text-align: center; font-size: 10px; color: var(--muted); }
+  #msgBar { font-size: 12px; color: var(--muted); padding: 0 14px 8px; }
+  #msgBar.error { color: var(--destructive); font-weight: 600; }
+  audio { width: 100%; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Lecture Organizer</h1>
+  <input id="searchInput" type="text" placeholder="Search all notes and transcripts…" />
+  <button id="onlineSearchBtn" title="Search the web for this, using Gemini">🌐 Search online</button>
+  <span id="lectureCount" class="muted"></span>
+  <span id="offlineBadge" class="badge-offline" style="display:none;">Offline — notes will generate automatically once you're back online</span>
+</header>
+
+<div id="onlinePanel">
+  <div class="head">
+    <p class="label">🌐 Online: <span id="onlineQueryText"></span></p>
+    <button id="onlineCloseBtn">✕ close</button>
+  </div>
+  <div id="onlineBody"></div>
+</div>
+
+<div id="msgBar"></div>
+
+<div class="layout">
+  <aside>
+    <div id="accountBox">
+      <p id="accountStatus" class="muted"></p>
+      <div id="authForm" style="display:none;">
+        <input id="authEmail" type="email" placeholder="Email" autocomplete="email" />
+        <input id="authPassword" type="password" placeholder="Password" autocomplete="current-password" />
+        <div class="row" style="margin:6px 0 0;">
+          <button id="loginBtn" class="btn-primary">Log in</button>
+          <button id="signupBtn">Sign up</button>
+        </div>
+        <p id="authError" style="color:var(--destructive); font-size:11px; margin:4px 0 0;"></p>
+      </div>
+      <button id="logoutBtn" style="display:none;">Log out</button>
+    </div>
+    <div id="settingsBox">
+      <select id="providerSelect">
+        <option value="gemini">Google Gemini (free key)</option>
+        <option value="groq">Groq · Llama 3.3 (free key)</option>
+      </select>
+      <div id="keyBox">
+        <p class="hint" id="keyHint"></p>
+        <div id="keyList"></div>
+        <div id="newKeyRow">
+          <input id="newKeyInput" type="password" placeholder="Paste a free API key, press Enter" />
+          <button id="addKeyBtn">Add</button>
+        </div>
+      </div>
+      <select id="languageSelect">
+        <option value="auto">Auto (Urdu + English mix)</option>
+        <option value="ur">Urdu</option>
+        <option value="en">English</option>
+      </select>
+      <div class="row" style="margin:0;">
+        <button id="exportBtn">Export backup</button>
+        <button id="importBtn">Import backup</button>
+        <input id="importFile" type="file" accept="application/json" style="display:none;" />
+      </div>
+    </div>
+    <div id="recordBox">
+      <button id="recordBtn" class="btn-primary" style="width:100%;">🔴 Start Recording</button>
+      <label style="display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted); cursor:pointer;">
+        <input id="audioOnlyToggle" type="checkbox" style="width:auto;" />
+        Record only, transcribe with AI after (use this if live transcription is unreliable — common on iPhone)
+      </label>
+      <p id="notSupportedMsg" class="muted" style="display:none;">
+        Live transcription isn't supported here. Check "Record only" above to still record and get notes afterward.
+      </p>
+      <p id="wakeLockMsg" class="muted" style="display:none;">
+        Your browser can't auto-keep the screen on during recording — disable auto-lock manually before a long lecture.
+      </p>
+    </div>
+    <div id="lectureList"></div>
+  </aside>
+
+  <main id="main"></main>
+</div>
+
+<footer>made by Musab</footer>
+
+<script>
+"use strict";
+
+/* ============================== DB (localStorage) ============================== */
+
+const STORAGE_KEY = "lecture-organizer-store-v1";
+
+function defaultSettings() {
+  return {
+    provider: "gemini",
+    apiKeys: { gemini: [], groq: [] },
+    activeKeyIndex: { gemini: 0, groq: 0 },
+    lastResetDate: { gemini: "", groq: "" },
+    language: "auto",
+  };
+}
+
+function readStore() {
+  if (typeof localStorage === "undefined") return { version: 1, settings: defaultSettings(), lectures: [] };
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { version: 1, settings: defaultSettings(), lectures: [] };
+    const p = JSON.parse(raw);
+    const ds = defaultSettings();
+    let settings = Object.assign({}, ds, p.settings || {}, {
+      apiKeys: Object.assign({}, ds.apiKeys, (p.settings && p.settings.apiKeys) || {}),
+      activeKeyIndex: Object.assign({}, ds.activeKeyIndex, (p.settings && p.settings.activeKeyIndex) || {}),
+      lastResetDate: Object.assign({}, ds.lastResetDate, (p.settings && p.settings.lastResetDate) || {}),
+    });
+    // Migrate a legacy single-key save, if present, so nothing gets lost.
+    const legacyKey = p.settings && p.settings.apiKey && p.settings.apiKey.trim();
+    if (legacyKey && settings.apiKeys[settings.provider].length === 0) {
+      settings = Object.assign({}, settings, {
+        apiKeys: Object.assign({}, settings.apiKeys, { [settings.provider]: [legacyKey] }),
+      });
+    }
+    const lectures = Array.isArray(p.lectures)
+      ? p.lectures.map((l) => Object.assign({}, l, { rawTranscript: l.rawTranscript || "" }))
+      : [];
+    return { version: 1, settings, lectures };
+  } catch {
+    return { version: 1, settings: defaultSettings(), lectures: [] };
+  }
+}
+
+function writeStore(s) {
+  if (typeof localStorage === "undefined") return;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+}
+
+function listLectures() {
+  return readStore().lectures.slice().sort((a, b) => b.createdAt - a.createdAt);
+}
+
+function putLecture(l) {
+  const s = readStore();
+  const i = s.lectures.findIndex((x) => x.id === l.id);
+  if (i >= 0) s.lectures[i] = l;
+  else s.lectures.push(l);
+  writeStore(s);
+  schedulePush();
+}
+
+function deleteLectureDb(id) {
+  const s = readStore();
+  s.lectures = s.lectures.filter((l) => l.id !== id);
+  writeStore(s);
+  deleteAudio(id).catch(() => {});
+  schedulePush();
+}
+
+function loadSettings() {
+  return readStore().settings;
+}
+
+function saveSettings(settings) {
+  const s = readStore();
+  s.settings = settings;
+  writeStore(s);
+  schedulePush();
+}
+
+function exportBackupJson() {
+  const s = readStore();
+  return JSON.stringify({ version: 1, lectures: s.lectures }, null, 2);
+}
+
+function importBackupJson(json) {
+  const data = JSON.parse(json);
+  const incoming = Array.isArray(data.lectures) ? data.lectures : [];
+  const s = readStore();
+  for (const l of incoming) {
+    const merged = Object.assign({}, l, { rawTranscript: l.rawTranscript || "" });
+    const i = s.lectures.findIndex((x) => x.id === l.id);
+    if (i >= 0) s.lectures[i] = merged;
+    else s.lectures.push(merged);
+  }
+  writeStore(s);
+  schedulePush();
+}
+
+/* ============================== Audio storage (IndexedDB) ============================== */
+
+const AUDIO_DB_NAME = "lecture-organizer-audio";
+const AUDIO_STORE = "audio";
+
+function openAudioDb() {
+  return new Promise((resolve, reject) => {
+    if (typeof indexedDB === "undefined") {
+      reject(new Error("IndexedDB isn't available in this browser."));
+      return;
+    }
+    const req = indexedDB.open(AUDIO_DB_NAME, 1);
+    req.onupgradeneeded = () => {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(AUDIO_STORE)) db.createObjectStore(AUDIO_STORE);
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error || new Error("Could not open audio storage."));
+  });
+}
+
+async function saveAudio(id, blob) {
+  const db = await openAudioDb();
+  try {
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction(AUDIO_STORE, "readwrite");
+      tx.objectStore(AUDIO_STORE).put(blob, id);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error || new Error("Could not save audio."));
+    });
+  } finally {
+    db.close();
+  }
+}
+
+async function getAudio(id) {
+  const db = await openAudioDb();
+  try {
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(AUDIO_STORE, "readonly");
+      const req = tx.objectStore(AUDIO_STORE).get(id);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error || new Error("Could not load audio."));
+    });
+  } finally {
+    db.close();
+  }
+}
+
+async function deleteAudio(id) {
+  const db = await openAudioDb();
+  try {
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction(AUDIO_STORE, "readwrite");
+      tx.objectStore(AUDIO_STORE).delete(id);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error || new Error("Could not delete audio."));
+    });
+  } finally {
+    db.close();
+  }
+}
+
+/* ============================== Live transcription (Web Speech API) ==============================
+   NOT offline — Chrome streams audio to Google's servers to convert it to text. Only the
+   recognized text string is ever handled here; audio recording is a separate system below. */
+
+function speechSupported() {
+  return !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+}
+
+async function ensureMicPermission() {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    throw new Error(
+      "Microphone access isn't available here. If you opened this file by double-clicking it " +
+      "(a file:// link), browsers block microphone access on that — it needs to be hosted at a " +
+      "real https:// address, or opened via http://localhost. Recording won't work until then.",
+    );
+  }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    stream.getTracks().forEach((t) => t.stop());
+  } catch (err) {
+    const name = err && err.name;
+    if (name === "NotAllowedError" || name === "PermissionDeniedError" || name === "SecurityError") {
+      throw new Error(
+        "Microphone permission is blocked for this site. Click the lock/info icon next to the " +
+        "address bar → Site settings → Microphone → Allow, then reload the page. If that's already " +
+        "set to Allow, check your OS's privacy settings too — Windows: Settings → Privacy & security " +
+        "→ Microphone, make sure it's on for your browser.",
+      );
+    }
+    if (name === "NotFoundError" || name === "DevicesNotFoundError") {
+      throw new Error("No microphone was found. Check one is connected, enabled, and not muted.");
+    }
+    if (name === "NotReadableError" || name === "TrackStartError") {
+      throw new Error("The microphone is busy or unreadable — another app may be using it exclusively. Close other apps using it and try again.");
+    }
+    throw err;
+  }
+}
+
+function langFor(language) {
+  if (language === "ur") return "ur-PK";
+  if (language === "en") return "en-US";
+  return "en-US"; // "auto" — Web Speech API can't truly mix languages live; this is a known limit
+}
+
+function startLiveTranscription(language, handlers) {
+  const Ctor = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!Ctor) throw new Error("This browser doesn't support live speech recognition. Try Chrome or Edge.");
+  const rec = new Ctor();
+  rec.continuous = true;
+  rec.interimResults = true;
+  rec.lang = langFor(language);
+
+  let finalText = "";
+  const segments = [];
+  let stopped = false;
+  let restarts = 0;
+  const startedAt = Date.now();
+
+  rec.onstart = () => {
+    restarts = 0;
+    if (handlers.onStarted) handlers.onStarted();
+  };
+
+  rec.onresult = (e) => {
+    let interim = "";
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      const res = e.results[i];
+      const text = (res[0] && res[0].transcript) || "";
+      if (res.isFinal) {
+        const trimmed = text.trim();
+        if (trimmed) {
+          finalText += (finalText ? " " : "") + trimmed;
+          segments.push(trimmed);
+        }
+      } else interim += text;
+    }
+    handlers.onText(finalText, interim.trim());
+  };
+
+  rec.onerror = (e) => {
+    const code = e.error;
+    if (code === "not-allowed" || code === "service-not-allowed") {
+      stopped = true;
+      if (handlers.onFatal) handlers.onFatal("Microphone access was blocked. Allow it in your browser's site settings and try again.");
+      return;
+    }
+    if (code === "audio-capture") {
+      stopped = true;
+      if (handlers.onFatal) handlers.onFatal("No microphone was found. Check it's connected, enabled, and not muted.");
+      return;
+    }
+    if (code === "network") {
+      handlers.onError("Speech recognition needs an internet connection (Chrome sends audio to Google).");
+      return;
+    }
+    if (code === "no-speech") return; // benign — recognition just keeps listening
+    handlers.onError("Recognition hiccup (" + code + ") — still listening.");
+  };
+
+  rec.onend = () => {
+    if (stopped) return;
+    restarts++;
+    if (restarts > 8) {
+      if (handlers.onFatal) handlers.onFatal("Recognition kept failing to restart — stopped. Try again.");
+      return;
+    }
+    try {
+      rec.start();
+    } catch {
+      /* already running somehow — ignore */
+    }
+  };
+
+  rec.start();
+
+  return {
+    stop() {
+      stopped = true;
+      try {
+        rec.stop();
+      } catch {
+        /* already stopped */
+      }
+      return { finalText: finalText.trim(), segments: segments, durationMs: Date.now() - startedAt };
+    },
+  };
+}
+
+/* ============================== Audio recording (saved for playback) ==============================
+   Separate from live transcription — only starts once transcription confirms it has the mic
+   (see onStarted below), to avoid both grabbing the microphone at the same instant, which can
+   cause one to fail to acquire it at all on some hardware. */
+
+function pickMimeType() {
+  if (typeof MediaRecorder === "undefined") return undefined;
+  const candidates = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/ogg"];
+  return candidates.find((t) => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(t));
+}
+
+async function startAudioRecording() {
+  if (typeof MediaRecorder === "undefined") throw new Error("This browser can't record audio (no MediaRecorder support).");
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    throw new Error("This browser can't access the microphone for recording.");
+  }
+  const rawStream = await navigator.mediaDevices.getUserMedia({
+    audio: { channelCount: 1, sampleRate: 16000, autoGainControl: true, noiseSuppression: true, echoCancellation: true },
+  });
+
+  let audioCtx = null;
+  let processedStream = rawStream;
+  try {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    audioCtx = new Ctx();
+    if (audioCtx.state === "suspended") await audioCtx.resume().catch(() => {});
+    const source = audioCtx.createMediaStreamSource(rawStream);
+    const gainNode = audioCtx.createGain();
+    gainNode.gain.value = 1.8; // moderate boost for a distant/quiet speaker — higher starts to clip closer sounds
+    const compressor = audioCtx.createDynamicsCompressor();
+    compressor.threshold.value = -50;
+    compressor.knee.value = 30;
+    compressor.ratio.value = 12;
+    compressor.attack.value = 0.003;
+    compressor.release.value = 0.25;
+    const destination = audioCtx.createMediaStreamDestination();
+    source.connect(gainNode).connect(compressor).connect(destination);
+    processedStream = destination.stream;
+  } catch {
+    if (audioCtx) audioCtx.close().catch(() => {});
+    audioCtx = null;
+    processedStream = rawStream;
+  }
+
+  const mimeType = pickMimeType();
+  const recorder = new MediaRecorder(
+    processedStream,
+    Object.assign({}, mimeType ? { mimeType } : {}, { audioBitsPerSecond: 20000 }),
+  );
+  const chunks = [];
+  recorder.ondataavailable = (e) => {
+    if (e.data && e.data.size > 0) chunks.push(e.data);
+  };
+  const stopTracks = () => {
+    rawStream.getTracks().forEach((t) => t.stop());
+    if (audioCtx) audioCtx.close().catch(() => {});
+  };
+  recorder.start(1000);
+
+  return {
+    stop() {
+      return new Promise((resolve, reject) => {
+        if (recorder.state === "inactive") {
+          stopTracks();
+          resolve(new Blob(chunks, { type: mimeType || "audio/webm" }));
+          return;
+        }
+        recorder.onerror = (e) => {
+          stopTracks();
+          reject((e && e.error) || new Error("Recording failed."));
+        };
+        recorder.onstop = () => {
+          stopTracks();
+          resolve(new Blob(chunks, { type: recorder.mimeType || mimeType || "audio/webm" }));
+        };
+        recorder.stop();
+      });
+    },
+    cancel() {
+      recorder.ondataavailable = null;
+      recorder.onstop = null;
+      recorder.onerror = null;
+      if (recorder.state !== "inactive") recorder.stop();
+      stopTracks();
+    },
+  };
+}
+
+/* ============================== Screen wake lock ==============================
+   Mobile OSes suspend background tabs aggressively to save battery — if the screen
+   locks mid-lecture, recording or transcription can silently stop. This keeps the
+   screen awake for as long as we're actively recording, where supported. */
+
+let wakeLock = null;
+
+function wakeLockSupported() {
+  return "wakeLock" in navigator;
+}
+
+async function requestWakeLock() {
+  if (!wakeLockSupported()) return;
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    wakeLock.addEventListener("release", () => {
+      wakeLock = null;
+    });
+  } catch {
+    wakeLock = null; // denied, or an unsupported context right now — recording still proceeds
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock) {
+    wakeLock.release().catch(() => {});
+    wakeLock = null;
+  }
+}
+
+// Some browsers auto-release the lock when a tab is hidden — if the user briefly
+// switches apps and comes back while still recording, re-acquire it so a long
+// lecture doesn't lose screen protection for the rest of the session.
+// (Listener registration itself lives in the Wiring section below.)
+function handleVisibilityChange() {
+  if (document.visibilityState === "visible" && state.status === "recording" && !wakeLock) {
+    requestWakeLock();
+  }
+}
+
+/* ============================== AI processing (Gemini / Groq) ============================== */
+
+class NetworkError extends Error {}
+class KeyExhaustedError extends Error {}
+
+async function fetchOrNetworkError(url, init) {
+  try {
+    return await fetch(url, init);
+  } catch (err) {
+    throw new NetworkError(err instanceof Error ? err.message : "Network request failed.");
+  }
+}
+
+async function throwForStatus(res, label) {
+  const body = await res.text();
+  if (res.status === 429 || res.status === 401 || res.status === 403) {
+    throw new KeyExhaustedError(label + " key rejected or rate-limited (" + res.status + ").");
+  }
+  throw new Error(label + " failed (" + res.status + "): " + body);
+}
+
+const SYSTEM_PROMPT =
+  "You are a lecture note-taker for exam preparation.\n" +
+  "The transcript may mix Urdu and English (code-switching). Preserve the original language of each\n" +
+  "sentence exactly as spoken — write Urdu in Urdu script, English in English, even inside one sentence.\n" +
+  "Return ONLY a valid JSON object with exactly these two keys:\n" +
+  '{"core_concepts":"- bullet ...","cleaned_transcript":"full cleaned text"}\n' +
+  '"core_concepts": a highly filtered bulleted list (one "- " per line) of ONLY exam-critical details:\n' +
+  "definitions, formulas, dates, names, cause-effect, and anything the teacher stressed. No filler.\n" +
+  '"cleaned_transcript": the complete transcript with filler words (um, ah, uh, hmm, "you know",\n' +
+  '"matlab" used as filler) removed and light punctuation added. Do not summarize or omit content.';
+
+const SEGMENT_NOTE =
+  "\nThe transcript below is split into utterances, one per line, each tagged with its word count\n" +
+  'like "[14w]". Each utterance is the text spoken continuously between two natural pauses, as\n' +
+  "detected live during recording — this is NOT a transcription error or formatting artifact.\n" +
+  "In a classroom recording, sustained multi-line runs of longer utterances are much more likely to\n" +
+  "be the teacher lecturing or explaining; isolated short utterances (a few words) are more likely a\n" +
+  "student's brief remark, aside, or question. There is no reliable way to know who is actually\n" +
+  "speaking — this is only a pattern in utterance length, not verified speaker identity.\n" +
+  'When writing "core_concepts", weight content from the longer, sustained utterances more heavily.\n' +
+  "You may still include a short utterance if it's clearly exam-relevant (e.g. a direct question the\n" +
+  "teacher then answers, or the teacher stating something briefly like a date or formula), but default\n" +
+  "to treating isolated short utterances as likely classroom chatter or interjections, not core content.\n" +
+  "Do not mention utterances, word counts, or this instruction in your output — just apply it.";
+
+function extractJson(text, fallback) {
+  const cleaned = text.replace(/```json|```/g, "").trim();
+  const start = cleaned.indexOf("{");
+  const end = cleaned.lastIndexOf("}");
+  if (start !== -1 && end > start) {
+    try {
+      const p = JSON.parse(cleaned.slice(start, end + 1));
+      return {
+        concepts: String(p.core_concepts != null ? p.core_concepts : p.concepts || "").trim(),
+        transcript: String(p.cleaned_transcript != null ? p.cleaned_transcript : p.transcript || "").trim() || fallback,
+      };
+    } catch {
+      /* fall through */
+    }
+  }
+  return { concepts: "", transcript: cleaned || fallback };
+}
+
+function langNote(language) {
+  if (language === "ur") return "\nThe lecture is primarily in Urdu.";
+  if (language === "en") return "\nThe lecture is primarily in English.";
+  return "\nThe lecture mixes Urdu and English; keep both languages as spoken.";
+}
+
+function buildPrompt(raw, segments) {
+  if (!segments || segments.length < 2) return { text: raw, segmented: false };
+  const text = segments
+    .map((s) => "[" + s.trim().split(/\s+/).filter(Boolean).length + "w] " + s)
+    .join("\n");
+  return { text: text, segmented: true };
+}
+
+async function geminiProcess(raw, apiKey, language, segments) {
+  const built = buildPrompt(raw, segments);
+  const res = await fetchOrNetworkError(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey.trim() },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: SYSTEM_PROMPT + (built.segmented ? SEGMENT_NOTE : "") + langNote(language) }] },
+        contents: [{ role: "user", parts: [{ text: "Lecture transcript:\n\n" + built.text }] }],
+        generationConfig: { responseMimeType: "application/json", temperature: 0.2 },
+      }),
+    },
+  );
+  if (!res.ok) await throwForStatus(res, "Gemini");
+  const json = await res.json();
+  const parts = json.candidates && json.candidates[0] && json.candidates[0].content && json.candidates[0].content.parts;
+  const responseText = parts ? parts.map((p) => p.text || "").join("") : "";
+  return extractJson(responseText, raw);
+}
+
+async function groqProcess(raw, apiKey, language, segments) {
+  const built = buildPrompt(raw, segments);
+  const res = await fetchOrNetworkError("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: "Bearer " + apiKey.trim() },
+    body: JSON.stringify({
+      model: "llama-3.3-70b-versatile",
+      temperature: 0.2,
+      response_format: { type: "json_object" },
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT + (built.segmented ? SEGMENT_NOTE : "") + langNote(language) },
+        { role: "user", content: "Lecture transcript:\n\n" + built.text },
+      ],
+    }),
+  });
+  if (!res.ok) await throwForStatus(res, "Groq");
+  const j = await res.json();
+  const content = (j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content) || "";
+  return extractJson(content, raw);
+}
+
+function todayPacific() {
+  // Google resets Gemini's free-tier daily quota at midnight Pacific time, not local midnight.
+  // en-CA formats as YYYY-MM-DD; the timeZone option handles PST/PDT automatically.
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles" }).format(new Date());
+}
+
+async function withKeyRotation(provider, keys, attempt) {
+  const today = todayPacific();
+  let rotationState = loadSettings();
+  let startIndex = rotationState.activeKeyIndex[provider] || 0;
+  if (rotationState.lastResetDate[provider] !== today) {
+    startIndex = 0;
+    rotationState = Object.assign({}, rotationState, {
+      activeKeyIndex: Object.assign({}, rotationState.activeKeyIndex, { [provider]: 0 }),
+      lastResetDate: Object.assign({}, rotationState.lastResetDate, { [provider]: today }),
+    });
+    saveSettings(rotationState);
+  }
+  if (startIndex >= keys.length) startIndex = 0;
+
+  for (let i = startIndex; i < keys.length; i++) {
+    const key = keys[i];
+    if (!key) continue;
+    try {
+      const result = await attempt(key);
+      if (i !== rotationState.activeKeyIndex[provider]) {
+        const latest = loadSettings();
+        saveSettings(Object.assign({}, latest, { activeKeyIndex: Object.assign({}, latest.activeKeyIndex, { [provider]: i }) }));
+      }
+      return result;
+    } catch (err) {
+      if (err instanceof KeyExhaustedError) continue;
+      throw err;
+    }
+  }
+  throw new Error(
+    keys.length > 1
+      ? "All " + keys.length + " API keys have hit today's limit or been rejected. Add another key, or wait for tomorrow's reset (~noon–1pm Pakistan time)."
+      : "Your API key has hit today's limit or been rejected. Add another key in Settings, or wait for tomorrow's reset (~noon–1pm Pakistan time).",
+  );
+}
+
+async function processTranscript(raw, settings, segments) {
+  if (!raw.trim()) throw new Error("Nothing was transcribed — try recording again.");
+  const provider = settings.provider;
+  const keys = (settings.apiKeys[provider] || []).map((k) => k.trim()).filter(Boolean);
+  if (keys.length === 0) throw new Error("Add at least one free API key in Settings first.");
+  if (typeof navigator !== "undefined" && navigator.onLine === false) throw new NetworkError("No internet connection.");
+  const call = provider === "groq" ? groqProcess : geminiProcess;
+  return withKeyRotation(provider, keys, (key) => call(raw, key, settings.language, segments));
+}
+
+async function geminiSearchCall(query, apiKey) {
+  const res = await fetchOrNetworkError(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey.trim() },
+      body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: query }] }], tools: [{ google_search: {} }] }),
+    },
+  );
+  if (!res.ok) await throwForStatus(res, "Gemini");
+  const json = await res.json();
+  const candidate = json.candidates && json.candidates[0];
+  const parts = candidate && candidate.content && candidate.content.parts;
+  const text = parts ? parts.map((p) => p.text || "").join("") : "";
+  const chunks = (candidate && candidate.groundingMetadata && candidate.groundingMetadata.groundingChunks) || [];
+  const sources = chunks
+    .map((c) => (c && c.web && c.web.uri ? { title: String(c.web.title || c.web.uri), url: String(c.web.uri) } : null))
+    .filter((s) => s !== null);
+  return { text: text, sources: sources };
+}
+
+async function searchOnline(query, settings) {
+  if (!query.trim()) throw new Error("Type something to search for first.");
+  if (settings.provider !== "gemini") throw new Error("Online search needs Gemini — switch providers in Settings first.");
+  const keys = (settings.apiKeys.gemini || []).map((k) => k.trim()).filter(Boolean);
+  if (keys.length === 0) throw new Error("Add a free Gemini API key in Settings first.");
+  if (typeof navigator !== "undefined" && navigator.onLine === false) throw new NetworkError("No internet connection.");
+  return withKeyRotation("gemini", keys, (key) => geminiSearchCall(query, key));
+}
+
+/* ---- Audio-native transcription (fallback for browsers without reliable live speech
+   recognition, e.g. iPhone Safari). Sends the actual recorded audio to Gemini, which
+   transcribes it directly — Gemini only, Groq has no audio input. ---- */
+
+function blobToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const result = String(reader.result || "");
+      const comma = result.indexOf(",");
+      resolve(comma >= 0 ? result.slice(comma + 1) : result);
+    };
+    reader.onerror = () => reject(reader.error || new Error("Could not read the recording for transcription."));
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function geminiTranscribeAudio(base64Audio, mimeType, apiKey, language) {
+  const res = await fetchOrNetworkError(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey.trim() },
+      body: JSON.stringify({
+        systemInstruction: {
+          parts: [
+            {
+              text:
+                SYSTEM_PROMPT +
+                langNote(language) +
+                "\nYou are given the actual lecture audio, not a pre-made transcript. Transcribe it " +
+                "yourself first, as accurately as you can, then apply the instructions above to it.",
+            },
+          ],
+        },
+        contents: [
+          {
+            role: "user",
+            parts: [
+              { text: "Transcribe this lecture recording, then follow the system instructions." },
+              { inline_data: { mime_type: mimeType, data: base64Audio } },
+            ],
+          },
+        ],
+        generationConfig: { responseMimeType: "application/json", temperature: 0.2 },
+      }),
+    },
+  );
+  if (!res.ok) await throwForStatus(res, "Gemini");
+  const json = await res.json();
+  const parts = json.candidates && json.candidates[0] && json.candidates[0].content && json.candidates[0].content.parts;
+  const responseText = parts ? parts.map((p) => p.text || "").join("") : "";
+  return extractJson(responseText, "");
+}
+
+async function processAudioDirectly(audioBlob, settings) {
+  if (!audioBlob || audioBlob.size === 0) throw new Error("No audio was recorded — try again.");
+  if (settings.provider !== "gemini") {
+    throw new Error("Transcribing from audio needs Gemini — switch providers in Settings first.");
+  }
+  const keys = (settings.apiKeys.gemini || []).map((k) => k.trim()).filter(Boolean);
+  if (keys.length === 0) throw new Error("Add a free Gemini API key in Settings first.");
+  if (typeof navigator !== "undefined" && navigator.onLine === false) {
+    throw new NetworkError("No internet connection.");
+  }
+  const base64 = await blobToBase64(audioBlob);
+  const mimeType = audioBlob.type || "audio/webm";
+  return withKeyRotation("gemini", keys, (key) => geminiTranscribeAudio(base64, mimeType, key, settings.language));
+}
+
+/* ============================== Cloud sync (Supabase) ==============================
+   Optional and additive: if this fails to load, or the user isn't logged in, the app
+   works exactly as it does locally-only — nothing here should ever block or degrade
+   the core recording/notes experience. */
+
+const SUPABASE_URL = "https://wpkkombowbgsnprhkwhl.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_rB0JNEN8VB6eJ_oERExtsQ_ZjD265bm";
+
+const supabaseClient =
+  typeof supabase !== "undefined" && SUPABASE_URL && SUPABASE_ANON_KEY
+    ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+
+let currentUser = null;
+let syncPushTimer = null;
+let cloudSyncing = false;
+
+async function pushToCloud() {
+  if (!supabaseClient || !currentUser) return;
+  try {
+    const s = readStore();
+    await supabaseClient.from("user_data").upsert({
+      user_id: currentUser.id,
+      lectures: s.lectures,
+      settings: s.settings,
+      updated_at: new Date().toISOString(),
+    });
+  } catch {
+    // Best-effort — a failed sync should never interrupt using the app locally.
+  }
+}
+
+function schedulePush() {
+  if (!supabaseClient || !currentUser) return;
+  clearTimeout(syncPushTimer);
+  syncPushTimer = setTimeout(pushToCloud, 800); // debounced so rapid edits don't spam requests
+}
+
+async function pullFromCloud() {
+  if (!supabaseClient || !currentUser) return;
+  cloudSyncing = true;
+  renderAccountBox();
+  try {
+    const { data, error } = await supabaseClient
+      .from("user_data")
+      .select("lectures, settings")
+      .eq("user_id", currentUser.id)
+      .maybeSingle();
+    if (error) throw error;
+    if (data) {
+      // Remote wins on login — simplest, most predictable behavior, rather than trying
+      // to merge two possibly-divergent local/remote copies.
+      const s = readStore();
+      writeStore(
+        Object.assign({}, s, {
+          lectures: Array.isArray(data.lectures) ? data.lectures : s.lectures,
+          settings:
+            data.settings && Object.keys(data.settings).length
+              ? Object.assign({}, defaultSettings(), data.settings)
+              : s.settings,
+        }),
+      );
+    } else {
+      // First login on this account — seed the cloud with whatever's local right now.
+      await pushToCloud();
+    }
+  } catch {
+    // Offline, or a real error — just keep using local data as-is.
+  } finally {
+    cloudSyncing = false;
+  }
+}
+
+function renderAccountBox() {
+  const status = $("accountStatus");
+  const form = $("authForm");
+  const logoutBtn = $("logoutBtn");
+  if (!supabaseClient) {
+    status.textContent = "Cloud sync unavailable right now (couldn't load — check your connection).";
+    form.style.display = "none";
+    logoutBtn.style.display = "none";
+    return;
+  }
+  if (currentUser) {
+    status.textContent = (cloudSyncing ? "Syncing… " : "Synced as ") + currentUser.email;
+    form.style.display = "none";
+    logoutBtn.style.display = "block";
+  } else {
+    status.textContent = "Log in to sync your notes and API key across devices.";
+    form.style.display = "block";
+    logoutBtn.style.display = "none";
+  }
+}
+
+function refreshStateFromLocal() {
+  state.settings = loadSettings();
+  state.lectures = listLectures();
+  if (!state.lectures.find((l) => l.id === state.activeId)) {
+    state.activeId = state.lectures[0] ? state.lectures[0].id : null;
+  }
+}
+
+async function initAuth() {
+  if (!supabaseClient) {
+    renderAccountBox();
+    return;
+  }
+  const { data } = await supabaseClient.auth.getSession();
+  currentUser = data && data.session ? data.session.user : null;
+  renderAccountBox();
+  if (currentUser) {
+    await pullFromCloud();
+    refreshStateFromLocal(); // pullFromCloud only touches localStorage — pull the result into memory too
+  }
+  renderAccountBox();
+  render();
+
+  supabaseClient.auth.onAuthStateChange((_event, session) => {
+    currentUser = session ? session.user : null;
+    renderAccountBox();
+    if (currentUser) {
+      pullFromCloud().then(() => {
+        refreshStateFromLocal();
+        renderAccountBox();
+        render();
+      });
+    }
+  });
+}
+
+/* ============================== App state & UI ============================== */
+
+const state = {
+  lectures: [],
+  activeId: null,
+  settings: defaultSettings(),
+  query: "",
+  status: "idle", // idle | recording | processing
+  liveFinal: "",
+  liveInterim: "",
+  dirty: false,
+  message: "",
+  messageIsError: false,
+  audioOnlyMode: false,
+  isOnline: typeof navigator === "undefined" ? true : navigator.onLine,
+  audioUrl: null,
+  audioMissing: false,
+  onlineLoading: false,
+  onlineError: null,
+  onlineResult: null,
+  onlineQuery: null,
+};
+
+let transcriber = null;
+let audioRecorder = null;
+let audioStartAttempted = false;
+const permanentlyFailed = new Set();
+let processingQueue = false;
+let elapsedTimer = null;
+let recordStartedAt = 0;
+
+function $(id) { return document.getElementById(id); }
+function esc(s) { const d = document.createElement("div"); d.textContent = s == null ? "" : String(s); return d.innerHTML; }
+
+function fmtDate(ms) {
+  const d = new Date(ms);
+  return d.toLocaleDateString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+}
+function fmtDur(ms) {
+  const s = Math.round(ms / 1000);
+  const m = Math.floor(s / 60);
+  const r = s % 60;
+  return m + ":" + String(r).padStart(2, "0");
+}
+
+function activeLecture() {
+  return state.lectures.find((l) => l.id === state.activeId) || null;
+}
+
+/** Updates only the live-transcript text and timer inside the recording shell —
+ * called on every speech-recognition tick. Must never touch the subject input,
+ * or typing into it would get wiped mid-keystroke by the frequent updates. */
+function updateLiveTextDisplay() {
+  const liveText = $("liveText");
+  if (!liveText) return;
+  liveText.innerHTML = "";
+  if (state.audioOnlyMode) {
+    liveText.innerHTML =
+      '<span class="muted">🎙 Recording audio' +
+      (state.status === "processing" ? " — transcribing with AI now…" : " — will transcribe with AI after you stop…") +
+      "</span>";
+  } else if (!state.liveFinal && !state.liveInterim) {
+    liveText.innerHTML = '<span class="muted">Listening…</span>';
+  } else {
+    const finalSpan = document.createElement("span");
+    finalSpan.textContent = state.liveFinal;
+    const interimSpan = document.createElement("span");
+    interimSpan.className = "interim";
+    interimSpan.textContent = state.liveInterim ? " " + state.liveInterim : "";
+    liveText.appendChild(finalSpan);
+    liveText.appendChild(interimSpan);
+  }
+  const timer = $("recordTimer");
+  if (timer) timer.textContent = state.status === "recording" ? fmtDur(Date.now() - recordStartedAt) : "";
+}
+
+function refreshLectures(nextActiveId) {
+  state.lectures = listLectures();
+  if (nextActiveId !== undefined) state.activeId = nextActiveId;
+  render();
+}
+
+/* ---- audio player loading for the active lecture ---- */
+let currentAudioObjectUrl = null;
+async function loadActiveAudio() {
+  if (currentAudioObjectUrl) {
+    URL.revokeObjectURL(currentAudioObjectUrl);
+    currentAudioObjectUrl = null;
+  }
+  state.audioUrl = null;
+  state.audioMissing = false;
+  const active = activeLecture();
+  if (!active || !active.hasAudio) {
+    renderMain();
+    return;
+  }
+  const lectureId = active.id;
+  try {
+    const blob = await getAudio(lectureId);
+    if (state.activeId !== lectureId) return; // switched away while loading
+    if (!blob) {
+      state.audioMissing = true;
+    } else {
+      currentAudioObjectUrl = URL.createObjectURL(blob);
+      state.audioUrl = currentAudioObjectUrl;
+    }
+  } catch {
+    if (state.activeId === lectureId) state.audioMissing = true;
+  }
+  renderMain();
+}
+
+/* ---- recording flow ---- */
+
+async function onStart() {
+  if (state.status !== "idle") return;
+  state.message = "";
+  state.messageIsError = false;
+  state.liveFinal = "";
+  state.liveInterim = "";
+  // Same rule as switching lectures: don't silently lose unsaved edits.
+  if (state.dirty && activeLecture()) {
+    putLecture(activeLecture());
+    state.dirty = false;
+  }
+  state.audioOnlyMode = $("audioOnlyToggle").checked;
+
+  if (state.audioOnlyMode) {
+    try {
+      await ensureMicPermission();
+      audioRecorder = await startAudioRecording();
+      recordStartedAt = Date.now();
+      state.status = "recording";
+      startElapsedTimer();
+      requestWakeLock();
+      render();
+    } catch (err) {
+      audioRecorder = null;
+      state.status = "idle";
+      state.message = err instanceof Error ? err.message : "Could not start recording.";
+      state.messageIsError = true;
+      render();
+    }
+    return;
+  }
+
+  try {
+    await ensureMicPermission();
+    if (transcriber) transcriber.stop();
+    audioStartAttempted = false;
+    transcriber = startLiveTranscription(state.settings.language, {
+      onText: (finalText, interim) => {
+        state.liveFinal = finalText;
+        state.liveInterim = interim;
+        updateLiveTextDisplay();
+      },
+      onError: (m) => { state.message = m; state.messageIsError = true; renderMsg(); },
+      onFatal: (m) => {
+        transcriber = null;
+        if (audioRecorder) audioRecorder.cancel();
+        audioRecorder = null;
+        state.message = m;
+        state.messageIsError = true;
+        state.status = "idle";
+        stopElapsedTimer();
+        releaseWakeLock();
+        render();
+      },
+      onStarted: () => {
+        if (audioStartAttempted) return;
+        audioStartAttempted = true;
+        startAudioRecording()
+          .then((rec) => {
+            if (!transcriber) { rec.cancel(); return; } // session already ended while this resolved
+            audioRecorder = rec;
+          })
+          .catch((err) => {
+            audioRecorder = null;
+            state.message = err instanceof Error
+              ? "Transcribing, but audio won't be saved: " + err.message
+              : "Transcribing, but audio recording could not start.";
+            renderMsg();
+          });
+      },
+    });
+    recordStartedAt = Date.now();
+    state.status = "recording";
+    startElapsedTimer();
+    requestWakeLock();
+    render();
+  } catch (err) {
+    transcriber = null;
+    state.status = "idle";
+    state.message = err instanceof Error ? err.message : "Could not start transcription.";
+    state.messageIsError = true;
+    render();
+  }
+}
+
+async function onStopAndProcess() {
+  if (state.status !== "recording") return;
+  stopElapsedTimer();
+  releaseWakeLock();
+
+  if (state.audioOnlyMode) {
+    await stopAudioOnlyRecording();
+    return;
+  }
+
+  if (!transcriber) return;
+  const t = transcriber;
+  transcriber = null;
+  const result = t.stop();
+  const raw = [result.finalText, state.liveInterim].filter(Boolean).join(" ").trim();
+  const allSegments = state.liveInterim.trim() ? result.segments.concat([state.liveInterim.trim()]) : result.segments;
+  state.liveInterim = "";
+  state.status = "processing";
+  render();
+
+  const rec = audioRecorder;
+  audioRecorder = null;
+  let audioBlob = null;
+  if (rec) {
+    try { audioBlob = await rec.stop(); } catch { audioBlob = null; }
+  }
+
+  const id = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+  const subjectInput = $("subjectInput");
+  const subject = (subjectInput && subjectInput.value.trim()) || "General";
+  const lecture = {
+    id: id,
+    title: subject + " — " + fmtDate(Date.now()),
+    subject: subject,
+    createdAt: Date.now(),
+    durationMs: result.durationMs,
+    rawTranscript: raw,
+    segments: allSegments,
+    concepts: "",
+    transcript: raw,
+    hasAudio: false,
+  };
+  putLecture(lecture);
+  refreshLectures(id);
+
+  let audioWarning = null;
+  if (audioBlob && audioBlob.size > 0) {
+    try {
+      await saveAudio(id, audioBlob);
+      putLecture(Object.assign({}, lecture, { hasAudio: true }));
+      refreshLectures(id);
+    } catch {
+      audioWarning = "Recording finished, but saving the audio for playback failed.";
+    }
+  }
+
+  try {
+    if (!navigator.onLine) {
+      state.message = (audioWarning ? audioWarning + " " : "") + "You're offline — notes will be generated automatically once you're back online.";
+      return;
+    }
+    state.message = (audioWarning ? audioWarning + " " : "") + "Cleaning transcript and extracting core concepts…";
+    renderMsg();
+    const res = await processTranscript(raw, state.settings, allSegments);
+    putLecture(Object.assign({}, lecture, res, { hasAudio: !!(audioBlob && audioBlob.size > 0) }));
+    refreshLectures(id);
+    state.message = (audioWarning ? audioWarning + " " : "") + "Done — notes auto-filled below.";
+  } catch (err) {
+    if (err instanceof NetworkError) {
+      state.message = (audioWarning ? audioWarning + " " : "Saved. ") + "You're offline — notes will be generated automatically once you're back online.";
+    } else {
+      const em = err instanceof Error ? err.message : "Processing failed.";
+      state.message = (audioWarning ? audioWarning + " " : "") + em;
+      state.messageIsError = true;
+    }
+  } finally {
+    state.status = "idle";
+    state.settings = loadSettings();
+    render();
+  }
+}
+
+/** Audio-only mode: no live transcription was running (transcriber stays null the whole
+ * time) — just stop the recorder, save the audio, and send it straight to Gemini for
+ * transcription. Used when live speech recognition is unavailable or unreliable, e.g. iOS. */
+async function stopAudioOnlyRecording() {
+  const rec = audioRecorder;
+  audioRecorder = null;
+  state.status = "processing";
+  render();
+
+  if (!rec) {
+    state.status = "idle";
+    state.message = "Nothing was recorded.";
+    state.messageIsError = true;
+    render();
+    return;
+  }
+  let audioBlob = null;
+  try { audioBlob = await rec.stop(); } catch { audioBlob = null; }
+
+  const id = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+  const subjectInput = $("subjectInput");
+  const subject = (subjectInput && subjectInput.value.trim()) || "General";
+  const lecture = {
+    id: id,
+    title: subject + " — " + fmtDate(Date.now()),
+    subject: subject,
+    createdAt: Date.now(),
+    durationMs: Date.now() - recordStartedAt,
+    rawTranscript: "",
+    segments: [],
+    concepts: "",
+    transcript: "",
+    hasAudio: false,
+    pendingAudioTranscription: true,
+  };
+  putLecture(lecture);
+  refreshLectures(id);
+
+  if (!audioBlob || audioBlob.size === 0) {
+    state.status = "idle";
+    state.message = "Nothing was recorded — try again.";
+    state.messageIsError = true;
+    render();
+    return;
+  }
+
+  try {
+    await saveAudio(id, audioBlob);
+    putLecture(Object.assign({}, lecture, { hasAudio: true }));
+    refreshLectures(id);
+  } catch {
+    state.status = "idle";
+    state.message = "Recording finished, but saving the audio failed.";
+    state.messageIsError = true;
+    render();
+    return;
+  }
+
+  try {
+    if (!navigator.onLine) {
+      state.message = "Saved. You're offline — this will be transcribed automatically once you're back online.";
+      return;
+    }
+    state.message = "Transcribing your recording with AI…";
+    renderMsg();
+    const res = await processAudioDirectly(audioBlob, state.settings);
+    putLecture(
+      Object.assign({}, lecture, res, {
+        hasAudio: true,
+        rawTranscript: res.transcript || "",
+        pendingAudioTranscription: false,
+      }),
+    );
+    refreshLectures(id);
+    state.message = "Done — notes auto-filled below.";
+  } catch (err) {
+    if (err instanceof NetworkError) {
+      state.message = "Saved. You're offline — this will be transcribed automatically once you're back online.";
+    } else {
+      state.message = err instanceof Error ? err.message : "Transcription failed.";
+      state.messageIsError = true;
+    }
+  } finally {
+    state.status = "idle";
+    state.settings = loadSettings();
+    render();
+  }
+}
+
+function startElapsedTimer() {
+  stopElapsedTimer();
+  elapsedTimer = setInterval(() => {
+    const el = $("recordTimer");
+    if (el) el.textContent = fmtDur(Date.now() - recordStartedAt);
+  }, 1000);
+}
+function stopElapsedTimer() {
+  if (elapsedTimer) { clearInterval(elapsedTimer); elapsedTimer = null; }
+}
+
+/* ---- lecture editing ---- */
+
+/** Updates in-memory lecture state without re-rendering the DOM. Used from the detail
+ * view's input/textarea handlers — calling renderMain() on every keystroke would tear
+ * down and rebuild those same fields, killing focus and cursor position mid-typing. */
+function patchActive(patch) {
+  const active = activeLecture();
+  if (!active) return;
+  const updated = Object.assign({}, active, patch);
+  state.lectures = state.lectures.map((l) => (l.id === active.id ? updated : l));
+  if (!state.dirty) {
+    state.dirty = true;
+    const saveBtn = $("saveActiveBtn");
+    if (saveBtn) saveBtn.disabled = false;
+  }
+}
+
+function saveActive() {
+  const active = activeLecture();
+  if (!active) return;
+  putLecture(active);
+  state.dirty = false;
+  state.message = "Saved.";
+  renderMsg();
+  renderSidebarList();
+  const saveBtn = $("saveActiveBtn");
+  if (saveBtn) saveBtn.disabled = true;
+}
+
+async function reprocessActive() {
+  const active = activeLecture();
+  if (!active || !active.rawTranscript) return;
+  state.status = "processing";
+  state.message = "Re-processing transcript…";
+  state.messageIsError = false;
+  render();
+  try {
+    const res = await processTranscript(active.rawTranscript, state.settings, active.segments);
+    putLecture(Object.assign({}, active, res));
+    state.dirty = false;
+    refreshLectures(active.id);
+    state.message = "Done.";
+  } catch (err) {
+    if (err instanceof NetworkError) {
+      state.message = "You're offline — this will retry automatically once you're back online.";
+    } else {
+      state.message = err instanceof Error ? err.message : "Processing failed.";
+      state.messageIsError = true;
+    }
+  } finally {
+    state.status = "idle";
+    state.settings = loadSettings();
+    render();
+  }
+}
+
+/** Manual retry for an audio-only-mode recording whose transcription failed for a real
+ * reason (bad key, etc.) rather than just being offline — the automatic queue gives up
+ * on those after one failure per session, so this is the way to try again. */
+async function retryAudioTranscription() {
+  const active = activeLecture();
+  if (!active || !active.pendingAudioTranscription || !active.hasAudio) return;
+  state.status = "processing";
+  state.message = "Transcribing your recording with AI…";
+  state.messageIsError = false;
+  render();
+  try {
+    const blob = await getAudio(active.id);
+    if (!blob) throw new Error("The saved audio for this lecture couldn't be found.");
+    const res = await processAudioDirectly(blob, state.settings);
+    putLecture(Object.assign({}, active, res, { rawTranscript: res.transcript || "", pendingAudioTranscription: false }));
+    state.dirty = false;
+    refreshLectures(active.id);
+    state.message = "Done.";
+  } catch (err) {
+    if (err instanceof NetworkError) {
+      state.message = "You're offline — this will retry automatically once you're back online.";
+    } else {
+      state.message = err instanceof Error ? err.message : "Transcription failed.";
+      state.messageIsError = true;
+    }
+  } finally {
+    state.status = "idle";
+    state.settings = loadSettings();
+    render();
+  }
+}
+
+function selectLecture(id) {
+  const active = activeLecture();
+  if (state.dirty && active) {
+    putLecture(active);
+    state.dirty = false;
+  }
+  state.activeId = id;
+  render();
+  loadActiveAudio();
+}
+
+function removeLecture(id) {
+  deleteLectureDb(id);
+  state.lectures = listLectures();
+  if (state.activeId === id) {
+    state.activeId = state.lectures[0] ? state.lectures[0].id : null;
+    state.dirty = false;
+  }
+  render();
+  loadActiveAudio();
+}
+
+/* ---- online search ---- */
+
+async function runOnlineSearch(q) {
+  if (!q || !q.trim()) return;
+  state.onlineQuery = q;
+  state.onlineResult = null;
+  state.onlineError = null;
+  state.onlineLoading = true;
+  renderOnlinePanel();
+  try {
+    state.onlineResult = await searchOnline(q, state.settings);
+  } catch (err) {
+    state.onlineError = err instanceof NetworkError
+      ? "You're offline — try again once you're back online."
+      : (err instanceof Error ? err.message : "Search failed.");
+  } finally {
+    state.onlineLoading = false;
+    state.settings = loadSettings();
+    renderOnlinePanel();
+    renderSettingsBox();
+  }
+}
+
+/* ---- offline auto-processing queue ---- */
+
+async function processQueueOnce() {
+  if (processingQueue || !navigator.onLine) return;
+  processingQueue = true;
+  try {
+    const pendingText = listLectures().filter((l) => l.rawTranscript && l.rawTranscript.trim() && !l.concepts && !permanentlyFailed.has(l.id));
+    for (const l of pendingText) {
+      if (!navigator.onLine) break;
+      if (l.id === state.activeId && state.dirty) continue;
+      try {
+        const res = await processTranscript(l.rawTranscript, loadSettings(), l.segments);
+        putLecture(Object.assign({}, l, res));
+        state.lectures = listLectures();
+        render();
+      } catch (err) {
+        if (err instanceof NetworkError) break;
+        permanentlyFailed.add(l.id);
+      }
+    }
+
+    // Audio-only mode recordings made while offline: never got transcribed at all yet,
+    // so there's no rawTranscript to send — fetch the saved audio itself and process it.
+    const pendingAudio = listLectures().filter((l) => l.pendingAudioTranscription && l.hasAudio && !permanentlyFailed.has(l.id));
+    for (const l of pendingAudio) {
+      if (!navigator.onLine) break;
+      if (l.id === state.activeId && state.dirty) continue;
+      try {
+        const blob = await getAudio(l.id);
+        if (!blob) { permanentlyFailed.add(l.id); continue; }
+        const res = await processAudioDirectly(blob, loadSettings());
+        putLecture(Object.assign({}, l, res, { rawTranscript: res.transcript || "", pendingAudioTranscription: false }));
+        state.lectures = listLectures();
+        render();
+      } catch (err) {
+        if (err instanceof NetworkError) break;
+        permanentlyFailed.add(l.id);
+      }
+    }
+  } finally {
+    processingQueue = false;
+    state.settings = loadSettings();
+    renderSettingsBox();
+  }
+}
+
+/* ============================== Rendering ============================== */
+
+function render() {
+  renderHeader();
+  renderAccountBox();
+  renderSettingsBox();
+  renderSidebarList();
+  renderMain();
+  renderMsg();
+  renderOnlinePanel();
+  const recBtn = $("recordBtn");
+  const audioOnlyChecked = $("audioOnlyToggle").checked;
+  const canRecordNow = audioOnlyChecked || speechSupported(); // audio-only mode doesn't need Web Speech API at all
+  recBtn.disabled = state.status === "processing" || (state.status === "idle" && !canRecordNow);
+  if (state.status === "recording") {
+    recBtn.textContent = "⏹ Stop & Process";
+    recBtn.onclick = onStopAndProcess;
+  } else if (state.status === "processing") {
+    recBtn.textContent = "Processing…";
+    recBtn.onclick = null;
+  } else {
+    recBtn.textContent = "🔴 Start Recording";
+    recBtn.onclick = onStart;
+  }
+  $("notSupportedMsg").style.display = speechSupported() ? "none" : "block";
+  $("wakeLockMsg").style.display = wakeLockSupported() ? "none" : "block";
+}
+
+function renderHeader() {
+  $("lectureCount").textContent = filteredLectures().length + " lectures";
+  $("offlineBadge").style.display = state.isOnline ? "none" : "inline-block";
+}
+
+function renderMsg() {
+  const bar = $("msgBar");
+  bar.textContent = state.message || "";
+  bar.className = state.messageIsError ? "error" : "";
+}
+
+function filteredLectures() {
+  const q = state.query.trim().toLowerCase();
+  if (!q) return state.lectures;
+  return state.lectures.filter((l) =>
+    (l.title + " " + l.subject + " " + l.transcript + " " + l.concepts).toLowerCase().includes(q),
+  );
+}
+
+function renderSidebarList() {
+  const box = $("lectureList");
+  const items = filteredLectures();
+  const groups = new Map();
+  for (const l of items) {
+    const key = l.subject || "General";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(l);
+  }
+  const sortedGroups = Array.from(groups.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+  box.innerHTML = "";
+  if (items.length === 0) {
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.style.padding = "10px";
+    p.textContent = "No lectures yet.";
+    box.appendChild(p);
+    return;
+  }
+  for (const [subject, lecs] of sortedGroups) {
+    const label = document.createElement("div");
+    label.className = "group-label";
+    label.textContent = subject;
+    box.appendChild(label);
+    for (const l of lecs) {
+      const btn = document.createElement("button");
+      btn.className = "lecture-item" + (l.id === state.activeId ? " active" : "");
+      btn.onclick = () => selectLecture(l.id);
+      const title = document.createElement("div");
+      title.className = "title";
+      title.textContent = l.title;
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      meta.textContent = fmtDate(l.createdAt) + " · " + fmtDur(l.durationMs) + (l.hasAudio ? " · 🎙" : "") +
+        (l.pendingAudioTranscription ? " · awaiting transcription" : (!l.concepts ? " · not processed" : ""));
+      btn.appendChild(title);
+      btn.appendChild(meta);
+      box.appendChild(btn);
+    }
+  }
+}
+
+function renderSettingsBox() {
+  $("providerSelect").value = state.settings.provider;
+  $("languageSelect").value = state.settings.language;
+  $("keyHint").textContent =
+    "API keys (" + (state.settings.provider === "groq" ? "Groq" : "Gemini") + ") — tried in order; when one hits today's limit, the next is used automatically.";
+  const list = $("keyList");
+  list.innerHTML = "";
+  const keys = state.settings.apiKeys[state.settings.provider] || [];
+  if (keys.length === 0) {
+    const p = document.createElement("p");
+    p.className = "hint";
+    p.textContent = "No keys added yet.";
+    list.appendChild(p);
+  }
+  keys.forEach((key, i) => {
+    const row = document.createElement("div");
+    row.className = "key-row";
+    const dot = document.createElement("span");
+    dot.className = "key-dot" + (i === state.settings.activeKeyIndex[state.settings.provider] ? " active" : "");
+    const span = document.createElement("span");
+    span.className = "k";
+    const masked = key.length > 8 ? key.slice(0, 4) + "•".repeat(Math.max(0, key.length - 8)) + key.slice(-4) : key;
+    span.textContent = masked;
+    const del = document.createElement("button");
+    del.textContent = "✕";
+    del.onclick = () => {
+      const provider = state.settings.provider;
+      const newKeys = state.settings.apiKeys[provider].filter((_, idx) => idx !== i);
+      const activeIdx = state.settings.activeKeyIndex[provider];
+      const newActive = activeIdx > i ? activeIdx - 1 : Math.min(activeIdx, Math.max(0, newKeys.length - 1));
+      state.settings = Object.assign({}, state.settings, {
+        apiKeys: Object.assign({}, state.settings.apiKeys, { [provider]: newKeys }),
+        activeKeyIndex: Object.assign({}, state.settings.activeKeyIndex, { [provider]: newActive }),
+      });
+      saveSettings(state.settings);
+      renderSettingsBox();
+    };
+    row.appendChild(dot);
+    row.appendChild(span);
+    row.appendChild(del);
+    list.appendChild(row);
+  });
+}
+
+function renderMain() {
+  const main = $("main");
+
+  if (state.status === "recording" || state.status === "processing") {
+    // Build the shell only if it isn't already there. onText fires many times per
+    // second during speech — if we rebuilt the whole panel every time, the subject
+    // input would lose focus and any typing into it would get wiped mid-keystroke.
+    if (!$("liveText")) {
+      main.innerHTML = "";
+      const box = document.createElement("div");
+      box.id = "liveBox";
+      const row = document.createElement("div");
+      row.className = "row";
+      row.style.marginBottom = "8px";
+      const subjLabel = document.createElement("label");
+      subjLabel.className = "muted";
+      subjLabel.textContent = "Subject: ";
+      const subjInput = document.createElement("input");
+      subjInput.type = "text";
+      subjInput.id = "subjectInput";
+      subjInput.value = (activeLecture() && activeLecture().subject) || "";
+      subjInput.placeholder = "Subject";
+      subjInput.style.width = "140px";
+      const timer = document.createElement("span");
+      timer.id = "recordTimer";
+      timer.className = "muted";
+      row.appendChild(subjLabel);
+      row.appendChild(subjInput);
+      row.appendChild(timer);
+      box.appendChild(row);
+      const liveText = document.createElement("div");
+      liveText.id = "liveText";
+      box.appendChild(liveText);
+      main.appendChild(box);
+    }
+    updateLiveTextDisplay();
+    return;
+  }
+
+  main.innerHTML = "";
+  const active = activeLecture();
+  if (!active) {
+    const p = document.createElement("p");
+    p.className = "empty-state";
+    p.textContent = "Select a lecture, or hit Start Recording to make your first one.";
+    main.appendChild(p);
+    return;
+  }
+
+  // Title/subject/actions row
+  const row = document.createElement("div");
+  row.className = "row";
+  const titleInput = document.createElement("input");
+  titleInput.type = "text";
+  titleInput.value = active.title;
+  titleInput.oninput = (e) => patchActive({ title: e.target.value });
+  const subjectInput = document.createElement("input");
+  subjectInput.type = "text";
+  subjectInput.className = "subject";
+  subjectInput.value = active.subject;
+  subjectInput.oninput = (e) => patchActive({ subject: e.target.value });
+  const saveBtn = document.createElement("button");
+  saveBtn.id = "saveActiveBtn";
+  saveBtn.className = "btn-primary";
+  saveBtn.textContent = "Save";
+  saveBtn.disabled = !state.dirty;
+  saveBtn.onclick = saveActive;
+  const reprocessBtn = document.createElement("button");
+  if (active.pendingAudioTranscription) {
+    reprocessBtn.textContent = state.status === "processing" ? "Transcribing…" : "Retry transcription";
+    reprocessBtn.disabled = state.status === "processing" || !active.hasAudio;
+    reprocessBtn.onclick = retryAudioTranscription;
+  } else {
+    reprocessBtn.textContent = "Re-process";
+    reprocessBtn.disabled = !active.rawTranscript;
+    reprocessBtn.onclick = reprocessActive;
+  }
+  const onlineBtn = document.createElement("button");
+  onlineBtn.textContent = "🌐 Better explanation online";
+  onlineBtn.title = "Find a clearer explanation of this topic online, using Gemini";
+  onlineBtn.disabled = state.onlineLoading || !(active.concepts || active.rawTranscript);
+  onlineBtn.onclick = () => runOnlineSearch("Explain clearly for exam prep, " + active.subject + ": " + (active.concepts || active.rawTranscript).slice(0, 300));
+  const delBtn = document.createElement("button");
+  delBtn.className = "btn-destructive";
+  delBtn.textContent = "Delete";
+  delBtn.onclick = () => removeLecture(active.id);
+  row.appendChild(titleInput);
+  row.appendChild(subjectInput);
+  row.appendChild(saveBtn);
+  row.appendChild(reprocessBtn);
+  row.appendChild(onlineBtn);
+  row.appendChild(delBtn);
+  main.appendChild(row);
+
+  // Audio panel
+  if (active.hasAudio) {
+    const panel = document.createElement("div");
+    panel.className = "panel";
+    const label = document.createElement("p");
+    label.className = "field-label";
+    label.textContent = "Recording";
+    panel.appendChild(label);
+    if (state.audioUrl) {
+      const audio = document.createElement("audio");
+      audio.controls = true;
+      audio.src = state.audioUrl;
+      panel.appendChild(audio);
+    } else if (state.audioMissing) {
+      const p = document.createElement("p");
+      p.className = "muted";
+      p.textContent = "Audio isn't available for this lecture (may have been cleared from local storage, or came from a text-only backup).";
+      panel.appendChild(p);
+    } else {
+      const p = document.createElement("p");
+      p.className = "muted";
+      p.textContent = "Loading audio…";
+      panel.appendChild(p);
+    }
+    main.appendChild(panel);
+  }
+
+  // Transcript / notes grid
+  const grid = document.createElement("div");
+  grid.className = "grid2";
+  const col1 = document.createElement("label");
+  col1.className = "field-label";
+  col1.textContent = "Live Transcript (cleaned)";
+  const ta1 = document.createElement("textarea");
+  ta1.dir = "auto";
+  ta1.value = active.transcript;
+  ta1.placeholder = "Cleaned transcript appears here after processing.";
+  ta1.oninput = (e) => patchActive({ transcript: e.target.value });
+  col1.appendChild(ta1);
+  const col2 = document.createElement("label");
+  col2.className = "field-label";
+  col2.textContent = "AI Exam Notes";
+  const ta2 = document.createElement("textarea");
+  ta2.dir = "auto";
+  ta2.value = active.concepts;
+  ta2.placeholder = "Exam-critical bullets appear here automatically.";
+  ta2.oninput = (e) => patchActive({ concepts: e.target.value });
+  col2.appendChild(ta2);
+  grid.appendChild(col1);
+  grid.appendChild(col2);
+  main.appendChild(grid);
+}
+
+function renderOnlinePanel() {
+  const panel = $("onlinePanel");
+  const show = state.onlineLoading || state.onlineResult || state.onlineError;
+  panel.style.display = show ? "block" : "none";
+  if (!show) return;
+  $("onlineQueryText").textContent = state.onlineQuery || "";
+  const body = $("onlineBody");
+  body.innerHTML = "";
+  if (state.onlineLoading) {
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.style.marginTop = "8px";
+    p.textContent = "Searching…";
+    body.appendChild(p);
+    return;
+  }
+  if (state.onlineError) {
+    const p = document.createElement("p");
+    p.style.color = "var(--destructive)";
+    p.style.marginTop = "8px";
+    p.style.fontSize = "13px";
+    p.textContent = state.onlineError;
+    body.appendChild(p);
+    return;
+  }
+  if (state.onlineResult) {
+    const p = document.createElement("p");
+    p.className = "text";
+    p.textContent = state.onlineResult.text;
+    body.appendChild(p);
+    if (state.onlineResult.sources && state.onlineResult.sources.length > 0) {
+      const srcBox = document.createElement("div");
+      srcBox.className = "sources";
+      state.onlineResult.sources.forEach((s) => {
+        const a = document.createElement("a");
+        a.href = s.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = s.title;
+        srcBox.appendChild(a);
+      });
+      body.appendChild(srcBox);
+    }
+  }
+}
+
+/* ============================== Wiring ============================== */
+
+window.addEventListener("online", () => { state.isOnline = true; renderHeader(); processQueueOnce(); });
+window.addEventListener("offline", () => { state.isOnline = false; renderHeader(); });
+document.addEventListener("visibilitychange", handleVisibilityChange);
+
+async function handleAuthSubmit(mode) {
+  const email = $("authEmail").value.trim();
+  const password = $("authPassword").value;
+  const errEl = $("authError");
+  errEl.textContent = "";
+  if (!supabaseClient) return;
+  if (!email || !password) {
+    errEl.textContent = "Enter both an email and a password.";
+    return;
+  }
+  try {
+    const { data, error } =
+      mode === "signup"
+        ? await supabaseClient.auth.signUp({ email, password })
+        : await supabaseClient.auth.signInWithPassword({ email, password });
+    if (error) throw error;
+    $("authPassword").value = "";
+    // If email confirmation is off for this project, signUp already returns an active
+    // session and the user is logged in immediately — only show the "check your email"
+    // message when that's actually what's needed.
+    errEl.textContent = mode === "signup" && data && data.user && !data.session
+      ? "Check your email to confirm, then log in."
+      : "";
+  } catch (err) {
+    errEl.textContent = err instanceof Error ? err.message : "That didn't work — try again.";
+  }
+}
+$("loginBtn").addEventListener("click", () => handleAuthSubmit("login"));
+$("signupBtn").addEventListener("click", () => handleAuthSubmit("signup"));
+$("authPassword").addEventListener("keydown", (e) => { if (e.key === "Enter") handleAuthSubmit("login"); });
+$("logoutBtn").addEventListener("click", async () => {
+  if (!supabaseClient) return;
+  await supabaseClient.auth.signOut();
+  // Local data stays exactly as it is — logging out only stops syncing, never deletes anything.
+});
+
+/** iOS Safari's live speech recognition has historically been unreliable (drops mid-lecture,
+ * doesn't support continuous recognition well on some versions) — default to the more robust
+ * "record then transcribe with AI" path there, without the user needing to know why. */
+function detectRecommendedAudioOnly() {
+  const ua = navigator.userAgent || "";
+  return /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+}
+
+const AUDIO_MODE_PREF_KEY = "lecture-organizer-audio-mode-pref";
+
+function getAudioOnlyDefault() {
+  const saved = typeof localStorage !== "undefined" ? localStorage.getItem(AUDIO_MODE_PREF_KEY) : null;
+  if (saved === "true") return true;
+  if (saved === "false") return false;
+  return detectRecommendedAudioOnly(); // no manual choice made yet — use the auto-detected recommendation
+}
+
+$("audioOnlyToggle").addEventListener("change", () => {
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem(AUDIO_MODE_PREF_KEY, $("audioOnlyToggle").checked ? "true" : "false");
+  }
+  render();
+});
+
+$("searchInput").addEventListener("input", (e) => { state.query = e.target.value; renderHeader(); renderSidebarList(); });
+$("onlineSearchBtn").addEventListener("click", () => runOnlineSearch($("searchInput").value));
+$("onlineCloseBtn").addEventListener("click", () => { state.onlineResult = null; state.onlineError = null; state.onlineQuery = null; renderOnlinePanel(); });
+
+$("providerSelect").addEventListener("change", (e) => {
+  state.settings = Object.assign({}, state.settings, { provider: e.target.value });
+  saveSettings(state.settings);
+  renderSettingsBox();
+});
+$("languageSelect").addEventListener("change", (e) => {
+  state.settings = Object.assign({}, state.settings, { language: e.target.value });
+  saveSettings(state.settings);
+});
+
+function addKeyFromInput() {
+  const input = $("newKeyInput");
+  const val = input.value.trim();
+  if (!val) return;
+  const provider = state.settings.provider;
+  state.settings = Object.assign({}, state.settings, {
+    apiKeys: Object.assign({}, state.settings.apiKeys, { [provider]: state.settings.apiKeys[provider].concat([val]) }),
+  });
+  saveSettings(state.settings);
+  input.value = "";
+  renderSettingsBox();
+}
+$("addKeyBtn").addEventListener("click", addKeyFromInput);
+$("newKeyInput").addEventListener("keydown", (e) => { if (e.key === "Enter") addKeyFromInput(); });
+
+$("exportBtn").addEventListener("click", () => {
+  const json = exportBackupJson();
+  const blob = new Blob([json], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "lecture-backup.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+$("importBtn").addEventListener("click", () => $("importFile").click());
+$("importFile").addEventListener("change", (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      importBackupJson(String(reader.result));
+      refreshLectures();
+      state.message = "Backup imported.";
+      renderMsg();
+    } catch {
+      state.message = "That file doesn't look like a valid backup.";
+      renderMsg();
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+
+window.addEventListener("beforeunload", (e) => {
+  if (state.status === "recording" || state.dirty) {
+    e.preventDefault();
+    e.returnValue = "";
+  }
+});
+
+/* ============================== Boot ============================== */
+
+state.settings = loadSettings();
+state.lectures = listLectures();
+state.activeId = state.lectures[0] ? state.lectures[0].id : null;
+$("audioOnlyToggle").checked = getAudioOnlyDefault();
+render();
+loadActiveAudio();
+processQueueOnce();
+initAuth();
+</script>
+</body>
+</html>
